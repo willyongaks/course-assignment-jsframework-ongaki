@@ -16,8 +16,8 @@ import Login from "../pages/login/Login";
 function Menu() {
   return (
     <Router>
-        <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar bg="dark" variant="dark" expand="lg">
+            <Navbar.Brand to="#home" className="logo">Gameset</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
