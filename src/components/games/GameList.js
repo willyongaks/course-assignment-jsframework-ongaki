@@ -45,11 +45,11 @@ function GameList() {
         <div className="post-container">
             {games.map((game) => {
                 return (
-                <div key={game.id}>
+                <div key={game.id} className="post-card">
                     <div>
-                    <a href="/details/:id">
-                        <h3>{game.title}</h3>
+                    <a href="/details/:id"> 
                         <img src={game.thumbnail} alt={game.thumbnail} />
+                        <h3>{game.title}</h3>
                     </a>
                     </div>
                 </div>
