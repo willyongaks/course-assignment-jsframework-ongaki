@@ -10,6 +10,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Home from "../pages/home/Home";
 import Contact from "../pages/contact/Contact";
 import Login from "../pages/login/Login";
+import GameDetails from "../games/GameDetails";
 
 
 
@@ -31,6 +32,7 @@ function Menu() {
         <Container>
             <Routes>
                 <Route path="/" exact element={< Home />}/>
+                <Route path="/details/:id" element={ <GameDetails />} />
                 <Route path="/contact" element={< Contact />}/>
                 <Route path="/login" element={< Login />}/>
             </Routes>

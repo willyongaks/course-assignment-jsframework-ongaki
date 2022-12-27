@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link  } from "react-router-dom";
 import { API } from "../../constants/api/Api"
+
 
 const options = {
 	method: 'GET',
@@ -21,7 +23,7 @@ function GameList() {
                 
                 if(response.ok){
                     const results = await response.json();
-                    console.log(results)
+                    // console.log(results)
                     setGames(results)
                 }
             }catch(error){
@@ -47,10 +49,10 @@ function GameList() {
                 return (
                 <div key={game.id} className="post-card">
                     <div>
-                    <a href="/details/:id"> 
+                    <Link to={`details/${game.id}`}> 
                         <img src={game.thumbnail} alt={game.thumbnail} />
                         <h3>{game.title}</h3>
-                    </a>
+                    </Link>
                     </div>
                 </div>
                 );
