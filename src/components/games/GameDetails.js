@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { API } from "../../constants/api/Api";
+import { API2 } from "../../constants/api/Api"
+
 
 const options = {
 	method: 'GET',
@@ -22,7 +23,8 @@ function GameDetails() {
     navigate.push("/");
   }
 
- const url = `${API}?${id}`;
+ const url = API2(id);
+
 
 
   useEffect(() => {
@@ -36,11 +38,7 @@ function GameDetails() {
         if (response.ok) {
           const json = await response.json();
           console.log(json);
-
-          let gameData;
-          gameData = json.find((game) => game.id === id);
-          console.log(gameData)
-          setGame(gameData);
+          setGame(json);
           console.log(id)
         } else {
           setError("An error occured");
@@ -68,7 +66,8 @@ function GameDetails() {
 
   return (
     <div>
-      <h1>{game.title}</h1>
+      <img src={game.thumbnail} alt={game.thumbnail} />
+      <h1 key={game.id}>{game.title}</h1>
     </div>
   )
 }
