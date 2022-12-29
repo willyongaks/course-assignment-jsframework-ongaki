@@ -28,16 +28,13 @@ function GameDetails() {
 
 
   useEffect(() => {
-    console.log(url)
     
     async function fetchData(){
       try{
         const response = await fetch(url, options)
-        console.log(response)
 
         if (response.ok) {
           const json = await response.json();
-          console.log(json);
           setGame(json);
           console.log(id)
         } else {
@@ -68,6 +65,7 @@ function GameDetails() {
     <div>
       <img src={game.thumbnail} alt={game.thumbnail} />
       <h1 key={game.id}>{game.title}</h1>
+      <p>{game.description}</p>
     </div>
   )
 }
