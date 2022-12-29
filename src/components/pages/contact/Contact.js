@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form" ;
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Heading from "../../layout/Heading";
 
 const schema = yup.object().shape({
   firstName: yup.string().required("please enter your first name"),
@@ -20,7 +21,9 @@ function Contact() {
 
   console.log(errors)
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <>
+      < Heading content="Contacnt us" />
+      <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="firstName">First Name</label><br />
       <input
         type="text"
@@ -66,6 +69,7 @@ function Contact() {
 
       <button type="submit">Send</button>
     </form>
+    </>
   )
 }
 

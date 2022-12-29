@@ -58,7 +58,7 @@ Display at least 3 properties from the item.
 
 ### Contact
 
-Create a form with the following inputs and validation:
+Create a form with the following inputs and validation: *DONE PARTIARLY
 
 -   First name - required, minimum 3 characters
 -   Last name - required, minimum 4 characters
