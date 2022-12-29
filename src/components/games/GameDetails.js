@@ -2,7 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { API } from "../../constants/api/Api";
 
-
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '4318904c87mshcf8fcdc984cadc9p1f8d99jsn9790322cce04',
+		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+	}
+};
 
 function GameDetails() {
   const [game, setGame] = useState(null);
@@ -16,7 +22,7 @@ function GameDetails() {
     navigate.push("/");
   }
 
-  const url = API + "/" + id;
+ const url = `${API}?${id}`;
 
 
   useEffect(() => {
@@ -24,13 +30,18 @@ function GameDetails() {
     
     async function fetchData(){
       try{
-        const response = await fetch(url)
+        const response = await fetch(url, options)
         console.log(response)
 
         if (response.ok) {
           const json = await response.json();
           console.log(json);
-          setGame(json);
+
+          let gameData;
+          gameData = json.find((game) => game.id === id);
+          console.log(gameData)
+          setGame(gameData);
+          console.log(id)
         } else {
           setError("An error occured");
      }
@@ -51,6 +62,9 @@ function GameDetails() {
   if (error) {
     return <div>An error occured: {error}</div>;
   }
+  if (!game) {
+  return <div>Game not found</div>;
+}
 
   return (
     <div>
