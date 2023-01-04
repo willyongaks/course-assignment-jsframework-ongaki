@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import FormError from "../../common/FormError";
 import { TOKEN_PATH, BASE_URL } from "../../../constants/api/Api";
 
+
 const url = BASE_URL + TOKEN_PATH;
 
 const schema = yup.object().shape({
@@ -26,7 +27,6 @@ function LoginForm() {
         setLoginError(null);
         try{
             const response = await fetch(url, {
-                mode: 'no-cors',
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),

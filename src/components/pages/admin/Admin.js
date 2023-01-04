@@ -1,8 +1,10 @@
-import React from 'react'
+import Heading from "../../layout/Heading"
 
 function Admin() {
   return (
-    <div>Admin</div>
+    <>
+      <Heading content="Admin"/>
+    </>
   )
 }
 
