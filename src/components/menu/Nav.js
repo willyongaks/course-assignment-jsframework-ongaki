@@ -23,7 +23,7 @@ function Nav() {
                    <Link to="/" className='nav-link'>Home</Link>
                     {auth ? (
                         <>
-                            | <Link to="/dashboard" className='nav-link'>Dashboard</Link> | <button onClick={logout}>Log out</button>
+                            | <Link to="/admin" className='nav-link'>Admin</Link> | <button onClick={logout}>Log out</button>
                         </>
                     ) : (
                         <Link to="/login" className='nav-link'>Login</Link>

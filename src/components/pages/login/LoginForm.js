@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormError from "../../common/FormError";
 import { TOKEN_PATH, BASE_URL } from "../../../constants/api/Api";
+import { useNavigate } from "react-router-dom";
+import AuthContext from "../../../context/AuthContext";
+
 
 
 const url = BASE_URL + TOKEN_PATH;
@@ -14,6 +17,10 @@ const schema = yup.object().shape({
 
 })
 function LoginForm() {
+    const navigate = useNavigate();
+    const [auth, setAuth] = useContext(AuthContext);
+
+
     const [submitting, setSubmitting] = useState(false);
     const [loginError, setLoginError] = useState(null);
 
@@ -33,6 +40,8 @@ function LoginForm() {
             });
             const responseJson = await response.json();
             console.log(responseJson);
+            setAuth(responseJson)
+            navigate("/admin");
         }catch (error){
             console.log("error", error);
             setLoginError(error);
