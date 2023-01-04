@@ -11,6 +11,7 @@ import Home from "../pages/home/Home";
 import Contact from "../pages/contact/Contact";
 import LoginPage from "../pages/login/LoginPage";
 import GameDetails from "../games/GameDetails";
+import Admin from "../pages/admin/Admin";
 
 
 
@@ -35,6 +36,7 @@ function Menu() {
                 <Route path="/details/:id" element={ <GameDetails />} />
                 <Route path="/contact" element={< Contact />}/>
                 <Route path="/login" element={< LoginPage />}/>
+                <Route path="/admin" element={< Admin />}/>
             </Routes>
         </Container>
     </Router>

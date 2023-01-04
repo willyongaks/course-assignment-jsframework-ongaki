@@ -63,8 +63,8 @@ function GameDetails() {
 
   return (
     <div>
-      <img src={game.thumbnail} alt={game.thumbnail} />
       <h1 key={game.id}>{game.title}</h1>
+      <img src={game.thumbnail} alt={game.thumbnail} />
       <p>{game.description}</p>
     </div>
   )

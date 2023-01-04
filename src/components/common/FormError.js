@@ -1,6 +1,5 @@
 import propTypes  from "prop-types";
 
-import React from 'react'
 
 function FormError({ children }) {
   return (

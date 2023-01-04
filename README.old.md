@@ -18,8 +18,8 @@ You can use either a REST or GraphQL API for the API calls.
 Please provide your login credentials for assessment.
 
 Example
-- username: xxxxxx
-- password: xxxxxx
+- username: Noroff
+- password: @Noroff1234
 
 ## Level 1
 
@@ -85,3 +85,10 @@ This page will simply display an "Admin" heading.
 Add a favourite button/icon component to each result on your home page. Clicking this button will toggle the result in/out of a favourites array.
 
 Add a "/favourites" path to your routes. This page will display all the items currently in the favourites array.
+
+
+
+
+
+
+## lo
