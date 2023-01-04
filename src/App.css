@@ -32,3 +32,6 @@ h3{
 .nav-link:hover{
   color: lightgray;
 }
+.logout-Btn{
+  float: right;
+}
