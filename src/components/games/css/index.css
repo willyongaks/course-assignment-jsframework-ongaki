@@ -1,0 +1,27 @@
+.post-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5em;
+  width: 100%;
+  justify-content: center;
+}
+.post-card{
+    padding-bottom: 1em;
+    background-color: aliceblue;
+}
+
+
+
+.card-info{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0.86);
+}
+
+.card-info p{
+    font-size: 18px;
+}
+
+
+

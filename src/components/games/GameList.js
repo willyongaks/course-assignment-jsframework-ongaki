@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link  } from "react-router-dom";
-import { API } from "../../constants/api/Api"
+import { API } from "../../constants/api/Api";
+import './css/index.css';
+import { FaHeart } from "react-icons/fa";
+
+
+
 
 
 const options = {
@@ -39,24 +44,37 @@ function GameList() {
     if(error){
         setError("an error occured")
     }
+
+    const firstTenGames = games.slice(0, 9);
   return (
     <>
         <div className="main-title">
             <h1>Best game collection</h1>
         </div>
         <div className="post-container">
-            {games.map((game) => {
+            {firstTenGames.map((game) => {
                 return (
                 <div key={game.id} className="post-card">
                     <div>
                     <Link to={`details/${game.id}`}> 
                         <img src={game.thumbnail} alt={game.thumbnail} />
-                        <h3>{game.title}</h3>
+                        
                     </Link>
                     </div>
+                    <div className="card-info">
+                        <p>{game.title}</p>
+                        <Link to="/some-page" className="fav-btn">
+                            < FaHeart />
+                        </Link>
+                    </div>
+                    
                 </div>
+                
                 );
             })}
+            {games.length > 10 && (
+                <button className="view-more-btn">View more</button>
+            )}
         </div>
     </>
     );
