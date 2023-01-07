@@ -1,7 +1,9 @@
+import "./index.css"
 import { useForm } from "react-hook-form" ;
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Heading from "../../layout/Heading";
+import Form from 'react-bootstrap/Form';
 
 const schema = yup.object().shape({
   firstName: yup.string().required("please enter your first name"),
@@ -23,27 +25,28 @@ function Contact() {
   return (
     <>
       < Heading content="Contacnt us" />
-      <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="firstName">First Name</label><br />
-      <input
-        type="text"
-        id="firstName"
-        name="firstName"
-        placeholder="Enter your first name"
-        {...register("firstName")}
-      /><br />
-      {errors.firstName && <span>{errors.firstName.message}</span>}
+      <Form onSubmit={handleSubmit(onSubmit)} className="contact-form">
+      <div className="name-inputs">
+        <label htmlFor="firstName">First Name</label> <br/>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="Enter your first name"
+          {...register("firstName")}
+        />
+        {errors.firstName && <span>{errors.firstName.message}</span>}
 
-      <label htmlFor="lastName">Last Name</label><br />
-      <input
-        type="text"
-        id="lastName"
-        name="lastName"
-        {...register("lastName")}
-        placeholder="Enter your last name"
-      /><br/>
-      {errors.lastName && <span>{errors.lastName.message}
-      </span>}
+        <label htmlFor="lastName">Last Name</label> 
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          {...register("lastName")}
+          placeholder="Enter your last name"
+        />
+        {errors.lastName && <span>{errors.lastName.message}</span>}
+      </div>
 
       <label htmlFor="email">Email</label><br />
       <input 
@@ -68,7 +71,7 @@ function Contact() {
       {errors.message && <span>{errors.message.message}</span>}
 
       <button type="submit">Send</button>
-    </form>
+    </Form>
     </>
   )
 }
