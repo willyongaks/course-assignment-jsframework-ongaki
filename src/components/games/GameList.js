@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link  } from "react-router-dom";
 import { API } from "../../constants/api/Api";
+import FavouriteButton from "../pages/favourites/FavsButton";
 import './css/index.css';
-import { FaHeart } from "react-icons/fa";
+
+
 
 
 
@@ -63,9 +65,7 @@ function GameList() {
                     </div>
                     <div className="card-info">
                         <p>{game.title}</p>
-                        <Link to="/some-page" className="fav-btn">
-                            < FaHeart />
-                        </Link>
+                        < FavouriteButton game={game}/>
                     </div>
                     
                 </div>
