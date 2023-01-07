@@ -87,8 +87,3 @@ Add a favourite button/icon component to each result on your home page. Clicking
 Add a "/favourites" path to your routes. This page will display all the items currently in the favourites array.
 
 
-
-
-
-
-## lo

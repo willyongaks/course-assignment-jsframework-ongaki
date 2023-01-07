@@ -1,13 +1,16 @@
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { useState } from "react";
+import "./index.css"
 
 const FavouriteButton = ({ game}) => {
     const [isFavourite, setIsFavourite] = useState(false);
 
-    const data = {
+    const data = game ? {
         gameId: game.id,
-        gameTitle: game.title
-    };
+        gameTitle: game.title,
+        gameImg: game.thumbnail,
+    } : {};
+   
 
     const handleClick = (event) => {
         event.preventDefault();

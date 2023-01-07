@@ -30,6 +30,7 @@ function Nav() {
                         
                     )}
                     <Link to="/contact" className='nav-link'>Contact</Link>
+                    <Link to="/favourites" className='nav-link'>favourites</Link>
                 </nav>
             </Navbar.Collapse>
         </Navbar>

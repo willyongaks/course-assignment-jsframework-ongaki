@@ -10,6 +10,7 @@ import Contact from "../pages/contact/Contact";
 import LoginPage from "../pages/login/LoginPage";
 import GameDetails from "../games/GameDetails";
 import Admin from "../pages/admin/Admin";
+import Favoutites from "../pages/favourites/Favoutites";
 import { AuthProvider } from "../../context/AuthContext";
 
 
@@ -26,6 +27,7 @@ function Menu() {
                 <Route path="/contact" element={< Contact />}/>
                 <Route path="/login" element={< LoginPage />}/>
                 <Route path="/admin" element={< Admin />}/>
+                <Route path="/favourites" element={< Favoutites />}/>
             </Routes>
         </Container>
       </Router>
