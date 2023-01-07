@@ -1,24 +1,45 @@
-import "./index.css"
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { useState } from "react";
-
 
 const FavouriteButton = ({ game}) => {
     const [isFavourite, setIsFavourite] = useState(false);
 
+    const data = {
+        gameId: game.id,
+        gameTitle: game.title
+    };
 
-    const handleFavsClick = (event) => {
+    const handleClick = (event) => {
         event.preventDefault();
-        setIsFavourite(!isFavourite);
 
-        localStorage.setItem("gameId", game.id);
-        localStorage.setItem("gameTitle", game.title);
-    }
+        const currentFavs = getExistingFavs();
+        const productExist = currentFavs.find(fav => fav.gameId === data.gameId);
+
+        if (productExist === undefined) {
+            currentFavs.push(data);
+            saveFavs(currentFavs);
+            setIsFavourite(true);
+        } else {
+            const newFavs = currentFavs.filter(fav => fav.gameId !== data.gameId);
+            saveFavs(newFavs);
+            setIsFavourite(false);
+        }
+    };
+
+    const getExistingFavs = () => {
+        const favs = localStorage.getItem("favouriteGames");
+        return favs ? JSON.parse(favs) : [];
+    };
+
+    const saveFavs = (favs) => {
+        localStorage.setItem("favouriteGames", JSON.stringify(favs));
+    };
 
     return (
-        <button onClick={handleFavsClick} className="favs-button">
-        {isFavourite ? < FaHeart /> : <FaRegHeart />}
+        <button onClick={handleClick} className="favs-button">
+            {isFavourite ? <FaHeart /> : <FaRegHeart />}
         </button>
     );
-}
+};
+
 export default FavouriteButton;
