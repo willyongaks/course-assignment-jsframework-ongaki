@@ -1,5 +1,36 @@
+.favourites-heading{
+    text-align: center;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+
 .favs-button{
     background: none;
     border: none;
     color: red;
+}
+
+.favourites-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.favourites-item {
+  width: 20%;
+  margin: 1%;
+}
+
+.favourites-item img {
+  width: 100%;
+}
+
+.favourites-item h3 {
+  text-align: center;
+}
+
+
+.deleteFavs-btn{
+    display: block;
+    margin: auto;
 }

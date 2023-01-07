@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import DeleteFavs from "./DeleteFavs";
 
 function Favoutites() {
   const [favourites, setFavourites] = useState([]);
@@ -10,15 +11,21 @@ function Favoutites() {
 
   return (
     <>
-      {favourites.map((fav) => (
-        <div key={fav.gameId}>
-          <p>{fav.gameTitle}</p>
-          <img src={fav.gameImg} alt={fav.gameImg} />
-          {/* You can also display other data such as the game's price, image, etc. */}
-        </div>
-      ))}
+      <div className="favourites-heading">
+        <h3>Your Favoutites</h3>
+      </div>
+      <div className="favourites-container">
+        {favourites.map(game => (
+          <div key={game.gameId} className="favourites-item">
+            <img src={game.gameImg} alt={game.gameTitle} />
+            <h3>{game.gameTitle}</h3>
+          </div>
+        ))}
+      </div>
+      < DeleteFavs />
     </>
-  );
+);
+
 }
 
 export default Favoutites;
