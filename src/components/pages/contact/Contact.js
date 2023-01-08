@@ -11,6 +11,7 @@ const schema = yup.object().shape({
   lastName: yup.string().required("please enter your last name").min(3, "Last name must be at least 3 charachters long"),
   email: yup.string().required("Please enter a valid email address").email("Please enter a valid email address"),
   message: yup.string().required("Please enter your message").min(10, "The message must be at least 10 characters"),
+  subject: yup.string().required("Please select one of the subjects"),
 })
 
 function Contact() {
@@ -62,14 +63,15 @@ function Contact() {
         {errors.email && <span>{errors.email.message}</span>}
       </div>
       <div className="mb-3">
-        <FloatingLabel controlId="floatingSelect" label="Works with selects">
-      <Form.Select aria-label="Floating label select example">
-        <option>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </Form.Select>
-    </FloatingLabel>
+        <FloatingLabel controlId="floatingSelect" label="Works with selects" {...register("subject", { required: true })}>
+          <Form.Select aria-label="Floating label select example">
+            <option>Open this select menu</option>
+            <option value="1">one</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            
+          </Form.Select>
+        </FloatingLabel>
         {errors.subject && <span>{errors.subject.message}</span>}
       </div>
       <div className="mb-3">
@@ -78,6 +80,7 @@ function Contact() {
             as="textarea"
             placeholder="Leave a comment here"
             style={{ height: '100px' }}
+            {...register("message")}
           />
           {errors.message && <span>{errors.message.message}</span>}
         </FloatingLabel>
