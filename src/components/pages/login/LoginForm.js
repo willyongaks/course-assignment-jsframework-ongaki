@@ -6,6 +6,7 @@ import FormError from "../../common/FormError";
 import { TOKEN_PATH, BASE_URL } from "../../../constants/api/Api";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
+import { Form, FormLabel, FormControl, FormGroup, Button } from "react-bootstrap";
 
 
 
@@ -52,24 +53,24 @@ function LoginForm() {
 
   return (
     <>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)} className="login-form text-center text-md-start d-flex flex-column justify-content-center">
             {loginError && <FormError>{loginError}</FormError>}
             <fieldset disabled={submitting}>
-                <div>
-                    <label>Username</label><br/>
-                    <input name="username" placeholder="username" {...register("username")} />
+                <FormGroup>
+                    <FormLabel>Username</FormLabel><br/>
+                    <FormControl name="username" placeholder="username" {...register("username")} className="form-control" autoComplete="off"/>
                     {errors.username && <FormError>{errors.username.message}</FormError>}
-                </div>
-                <div>
-                    <label>password</label><br/>
-                    <input name="password" placeholder="username" {...register("password")} type="password"/>
+                </FormGroup>
+                <FormGroup>
+                    <FormLabel>password</FormLabel><br/>
+                    <FormControl name="password" placeholder="password" {...register("password")} type="password" autoComplete="off"/>
                     {errors.password && <FormError>{errors.password.message}</FormError>}
-                </div>
+                </FormGroup>
 
-                <button>{submitting ? "Loggin in..." : "Login"}</button>
+                <Button>{submitting ? "Loggin in..." : "Login"}</Button>
 
             </fieldset>
-        </form>
+        </Form>
     </>
   )
 }

@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form" ;
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Heading from "../../layout/Heading";
-import Form from 'react-bootstrap/Form';
+import { Form, FormControl, Button } from "react-bootstrap";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 const schema = yup.object().shape({
   firstName: yup.string().required("please enter your first name"),
@@ -25,52 +26,70 @@ function Contact() {
   return (
     <>
       < Heading content="Contacnt us" />
-      <Form onSubmit={handleSubmit(onSubmit)} className="contact-form">
-      <div className="name-inputs">
-        <label htmlFor="firstName">First Name</label> <br/>
-        <input
+      <Form onSubmit={handleSubmit(onSubmit)} className="contact-form text-center text-md-start d-flex flex-column justify-content-center">
+      <div className="name-inputs d-flex mb-3">
+        <div className="col-6">
+           <FormControl
           type="text"
           id="firstName"
           name="firstName"
-          placeholder="Enter your first name"
+          placeholder="First name"
           {...register("firstName")}
         />
         {errors.firstName && <span>{errors.firstName.message}</span>}
 
-        <label htmlFor="lastName">Last Name</label> 
-        <input
+        </div>
+        <div className="col-6">
+          <FormControl
           type="text"
           id="lastName"
           name="lastName"
           {...register("lastName")}
-          placeholder="Enter your last name"
+          placeholder="last name"
+          />
+          {errors.lastName && <span>{errors.lastName.message}</span>}
+        </div>
+        
+      </div>
+      <div className="mb-3">
+        <FormControl 
+          type="text"
+          id="email"
+          name="email"
+          {...register("email")}
+          placeholder="Email"
         />
-        {errors.lastName && <span>{errors.lastName.message}</span>}
+        {errors.email && <span>{errors.email.message}</span>}
+      </div>
+      <div className="mb-3">
+        <FloatingLabel controlId="floatingSelect" label="Works with selects">
+      <Form.Select aria-label="Floating label select example">
+        <option>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </Form.Select>
+    </FloatingLabel>
+        {errors.subject && <span>{errors.subject.message}</span>}
+      </div>
+      <div className="mb-3">
+        <FloatingLabel controlId="floatingTextarea2" label="Comments">
+          <Form.Control
+            as="textarea"
+            placeholder="Leave a comment here"
+            style={{ height: '100px' }}
+          />
+          {errors.message && <span>{errors.message.message}</span>}
+        </FloatingLabel>
       </div>
 
-      <label htmlFor="email">Email</label><br />
-      <input 
-        type="text"
-        id="email"
-        name="email"
-        {...register("email")}
-        placeholder="Enter your email"
-      /><br />
+      
 
+      
 
-      <label htmlFor="subject">Subject:</label><br />
-      <select id="subject" name="subject" {...register}>
-        <option value="">--please choose an option--</option>
-        <option value="option1">option 1</option>
-        <option value="option2">option 2</option>
-      </select><br />
-      {errors.subject && <span>{errors.subject.message}</span>}
+      
 
-      <label htmlFor="message">Message:</label><br />
-      <textarea id="message" name="message" {...register("message")}></textarea><br />
-      {errors.message && <span>{errors.message.message}</span>}
-
-      <button type="submit">Send</button>
+      <Button type="submit">Send</Button>
     </Form>
     </>
   )

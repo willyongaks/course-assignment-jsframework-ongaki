@@ -2,6 +2,10 @@
   padding-left: 2em;
 }
 
+.Heading{
+    text-align: center;
+}
+
 .main-title{
   text-align: center;
   padding: 2em;
@@ -22,6 +26,14 @@ a{
 .nav-link:hover{
   color: lightgray;
 }
-.logout-Btn{
-  float: right;
+@media (max-width: 990px) {
+  .nav-link {
+    display: block;
+    padding: 1em;
+  }
 }
+
+
+
+
+/* Forms */

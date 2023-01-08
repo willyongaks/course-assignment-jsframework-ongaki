@@ -1,7 +1,7 @@
 import  propTypes from "prop-types";
 
 function Heading({ content}) {
- 	return <h1>{content}</h1>;
+ 	return <h1 className="Heading">{content}</h1>;
 }
 
 Heading.propTypes = {
