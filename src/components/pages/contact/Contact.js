@@ -86,13 +86,7 @@ function Contact() {
         </FloatingLabel>
       </div>
 
-      
-
-      
-
-      
-
-      <Button type="submit">Send</Button>
+      <Button type="submit" className="contact-btn">Send</Button>
     </Form>
     </>
   )

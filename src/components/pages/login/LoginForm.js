@@ -67,7 +67,7 @@ function LoginForm() {
                     {errors.password && <FormError>{errors.password.message}</FormError>}
                 </FormGroup>
 
-                <Button>{submitting ? "Loggin in..." : "Login"}</Button>
+                <button className="login-button">{submitting ? "Loggin in..." : "Login"}</button>
 
             </fieldset>
         </Form>

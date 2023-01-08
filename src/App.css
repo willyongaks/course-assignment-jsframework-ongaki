@@ -36,4 +36,35 @@ a{
 
 
 
-/* Forms */
+.login-button{
+  width: 100%;
+  padding: 10px;
+  margin-top: 1em;
+  padding-top: 1em;
+  border: none;
+  background-color: black;
+  color: whitesmoke;
+}
+
+.login-button:hover{
+  background-color: whitesmoke;
+  color: black;
+}
+
+
+.logout-Btn{
+  float: right;
+  border: none;
+  padding: 1px 5px;
+}
+
+
+.contact-btn{
+  background-color: black;
+  border: none;
+}
+
+.contact-btn:hover{
+  background-color: whitesmoke;
+  color: black;
+}
