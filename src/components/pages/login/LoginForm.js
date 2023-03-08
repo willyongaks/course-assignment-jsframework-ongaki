@@ -6,7 +6,7 @@ import FormError from "../../common/FormError";
 import { TOKEN_PATH, BASE_URL } from "../../../constants/api/Api";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
-import { Form, FormLabel, FormControl, FormGroup, Button } from "react-bootstrap";
+import { Form, FormLabel, FormControl, FormGroup } from "react-bootstrap";
 
 
 
@@ -19,7 +19,7 @@ const schema = yup.object().shape({
 })
 function LoginForm() {
     const navigate = useNavigate();
-    const [auth, setAuth] = useContext(AuthContext);
+    const [setAuth] = useContext(AuthContext);
 
 
     const [submitting, setSubmitting] = useState(false);
