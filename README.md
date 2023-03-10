@@ -1,4 +1,4 @@
-# Your project title
+# GAMESET
 
 ![image](/src/components/assts/websiteScreenshot.png)
 
